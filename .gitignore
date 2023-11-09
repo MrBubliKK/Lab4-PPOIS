@@ -356,6 +356,14 @@ healthchecksdb
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 MigrationBackup/
 
+Lab4 PPOIS.sln
+Lab4 PPOIS.vcxproj
+Lab4 PPOIS.vcxproj.filters
+Lab4Tests.vcxproj
+Lab4Tests.vcxproj.filters
+pch.cpp
+pch.h
+
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
