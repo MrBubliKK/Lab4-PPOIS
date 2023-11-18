@@ -18,7 +18,7 @@ public:
 				return top;
 			}
 		}
-		return nullptr; // Если элемент с указанным содержимым не найден
+		return nullptr; // Г…Г±Г«ГЁ ГЅГ«ГҐГ¬ГҐГ­ГІ Г± ГіГЄГ Г§Г Г­Г­Г»Г¬ Г±Г®Г¤ГҐГ°Г¦ГЁГ¬Г»Г¬ Г­ГҐ Г­Г Г©Г¤ГҐГ­
 	}
 
 	vector<pair<Type, Type>> Get_edge(Type content1, Type content2) {
@@ -29,7 +29,7 @@ public:
 		}
 	}
 
-	//Прямой метод добавления вершины
+	//ГЏГ°ГїГ¬Г®Г© Г¬ГҐГІГ®Г¤ Г¤Г®ГЎГ ГўГ«ГҐГ­ГЁГї ГўГҐГ°ГёГЁГ­Г»
 	void Add_top(Type content) {
 		list_tops.push_back(new Top<Type>(content));
 	}
@@ -42,12 +42,12 @@ public:
 		return list_edges;
 	}
 
-	//Прямой метод добавления ребра
+	//ГЏГ°ГїГ¬Г®Г© Г¬ГҐГІГ®Г¤ Г¤Г®ГЎГ ГўГ«ГҐГ­ГЁГї Г°ГҐГЎГ°Г 
 	void Add_edge(Type content1, Type content2) {
 		list_edges.push_back({ content1, content2 });
 	}
 
-	//Ищет определенную вершину
+	//Г€Г№ГҐГІ Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­Г­ГіГѕ ГўГҐГ°ГёГЁГ­Гі
 	bool Search_top(Type content) {
 		for (typename vector<Top<Type>*>::iterator it = list_tops.begin(); it != list_tops.end(); it++) {
 			if (content == (*it)->Get_content()) {
@@ -57,7 +57,7 @@ public:
 		return false;
 	}
 
-	//Ищиет ребро
+	//Г€Г№ГЁГҐГІ Г°ГҐГЎГ°Г®
 	bool Search_edge(Type content1, Type content2) {
 		for (typename vector<pair<Type, Type>>::iterator it = list_edges.begin(); it != list_edges.end(); it++) {
 			if ((content1 == it->first) && (content2 == it->second)) {
@@ -67,17 +67,17 @@ public:
 		return false;
 	}
 
-	//Выводит количество вершин
+	//Г‚Г»ГўГ®Г¤ГЁГІ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГўГҐГ°ГёГЁГ­
 	void Print_size_tops() {
-		cout << "Количество вершин в графе: " << list_tops.size() << endl;
+		cout << "ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГўГҐГ°ГёГЁГ­ Гў ГЈГ°Г ГґГҐ: " << list_tops.size() << endl;
 	}
 
-	//Выводит количество ребер
+	//Г‚Г»ГўГ®Г¤ГЁГІ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® Г°ГҐГЎГҐГ°
 	void Print_size_edges() {
-		cout << "Количество ребер в графе: " << list_edges.size() << endl;
+		cout << "ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® Г°ГҐГЎГҐГ° Гў ГЈГ°Г ГґГҐ: " << list_edges.size() << endl;
 	}
 
-	//Прямой метод удаления вершины
+	//ГЏГ°ГїГ¬Г®Г© Г¬ГҐГІГ®Г¤ ГіГ¤Г Г«ГҐГ­ГЁГї ГўГҐГ°ГёГЁГ­Г»
 	bool Del_top(Type content) {
 		for (typename vector<Top<Type>*>::iterator it = list_tops.begin(); it != list_tops.end(); it++) {
 			if (content == (*it)->Get_content()) {
@@ -88,7 +88,7 @@ public:
 		return false;
 	}
 
-	//Прямой метод удаления ребра
+	//ГЏГ°ГїГ¬Г®Г© Г¬ГҐГІГ®Г¤ ГіГ¤Г Г«ГҐГ­ГЁГї Г°ГҐГЎГ°Г 
 	bool Del_edge(Type content1, Type content2) {
 		for (typename vector<pair<Type, Type>>::iterator it = list_edges.begin(); it != list_edges.end(); it++) {
 			if ((content1 == it->first) && (content2 == it->second)) {
@@ -107,7 +107,7 @@ public:
 		top2->Del_parent_top(content1);
 	}
 
-	//Удаляет ребра с удаленной вершиной
+	//Г“Г¤Г Г«ГїГҐГІ Г°ГҐГЎГ°Г  Г± ГіГ¤Г Г«ГҐГ­Г­Г®Г© ГўГҐГ°ГёГЁГ­Г®Г©
 	void Del_edges_top(Type content) {
 		for (typename vector<pair<Type, Type>>::iterator it = list_edges.begin(); it != list_edges.end();) {
 			if ((content == it->first) || (content == it->second)) {
@@ -120,15 +120,15 @@ public:
 		}
 	}
 
-	//Полноценный метод удаления вершины
+	//ГЏГ®Г«Г­Г®Г¶ГҐГ­Г­Г»Г© Г¬ГҐГІГ®Г¤ ГіГ¤Г Г«ГҐГ­ГЁГї ГўГҐГ°ГёГЁГ­Г»
 	bool Del_full_top(Type content) {
 		try {
 			if (!Search_top(content)) {
-				throw "Такой вершины нет!\n";
+				throw "Г’Г ГЄГ®Г© ГўГҐГ°ГёГЁГ­Г» Г­ГҐГІ!\n";
 			}
 			Del_edges_top(content);
 			Del_top(content);
-			cout << "Вершина удалена.\n";
+			cout << "Г‚ГҐГ°ГёГЁГ­Г  ГіГ¤Г Г«ГҐГ­Г .\n";
 			return true;
 		}
 		catch (const char* errorMessage) {
@@ -138,19 +138,19 @@ public:
 	}
 
 
-	//Полноценный метод удаления ребра
+	//ГЏГ®Г«Г­Г®Г¶ГҐГ­Г­Г»Г© Г¬ГҐГІГ®Г¤ ГіГ¤Г Г«ГҐГ­ГЁГї Г°ГҐГЎГ°Г 
 	bool Del_full_edge(Type content1, Type content2) {
 		try {
 			if (!(Search_top(content1)) || !(Search_top(content2))) {
-				throw "Одной из вершин не существует!\n";
+				throw "ГЋГ¤Г­Г®Г© ГЁГ§ ГўГҐГ°ГёГЁГ­ Г­ГҐ Г±ГіГ№ГҐГ±ГІГўГіГҐГІ!\n";
 			}
 			if (!Search_edge(content1, content2)) {
-				throw "Такого ребра нет!\n";
+				throw "Г’Г ГЄГ®ГЈГ® Г°ГҐГЎГ°Г  Г­ГҐГІ!\n";
 			}
 
 			Del_child_parent_top(content1, content2);
 			Del_edge(content1, content2);
-			cout << "Ребро удалено.\n";
+			cout << "ГђГҐГЎГ°Г® ГіГ¤Г Г«ГҐГ­Г®.\n";
 			return true;
 		}
 		catch (const char* errorMessage) {
@@ -158,28 +158,15 @@ public:
 			return false;
 		}
 	}
-		/*if ((Search_top(content1)) && (Search_top(content2))) {
-			if (Search_edge(content1, content2)) {
-				Del_child_parent_top(content1, content2);
-				Del_edge(content1, content2);
-				cout << "Ребро удалено.\n";
-				return true;
-			}
-			cout << "Такого ребра нет!\n";
-			return false;
-		}
-		cout << "Одной из вершин не существует!\n";
-		return false;
-	}*/
 
-	//Полноценноый метод добавления вершины
+	//ГЏГ®Г«Г­Г®Г¶ГҐГ­Г­Г®Г»Г© Г¬ГҐГІГ®Г¤ Г¤Г®ГЎГ ГўГ«ГҐГ­ГЁГї ГўГҐГ°ГёГЁГ­Г»
 	bool Add_full_top(Type content) {
 		try {
 			if (Search_top(content)) {
-				throw "Такая вершина уже есть!\n";
+				throw "Г’Г ГЄГ Гї ГўГҐГ°ГёГЁГ­Г  ГіГ¦ГҐ ГҐГ±ГІГј!\n";
 			}
 			Add_top(content);
-			cout << "Вершина добавлена.\n";
+			cout << "Г‚ГҐГ°ГёГЁГ­Г  Г¤Г®ГЎГ ГўГ«ГҐГ­Г .\n";
 			return true;
 		}
 		catch (const char* errorMessage) {
@@ -196,18 +183,18 @@ public:
 		top2->Add_parent_top(top1);
 	}
 
-	//Полноценный метод добавления ребра
+	//ГЏГ®Г«Г­Г®Г¶ГҐГ­Г­Г»Г© Г¬ГҐГІГ®Г¤ Г¤Г®ГЎГ ГўГ«ГҐГ­ГЁГї Г°ГҐГЎГ°Г 
 	bool Add_full_edge(Type content1, Type content2) {
 		try {
 			if ((!Search_top(content1)) || (!Search_top(content2))) {
-				throw "Одной из вершин не существует!\n";
+				throw "ГЋГ¤Г­Г®Г© ГЁГ§ ГўГҐГ°ГёГЁГ­ Г­ГҐ Г±ГіГ№ГҐГ±ГІГўГіГҐГІ!\n";
 			}
 			if (Search_edge(content1, content2)) {
-				throw "Ребро уже существует!\n";
+				throw "ГђГҐГЎГ°Г® ГіГ¦ГҐ Г±ГіГ№ГҐГ±ГІГўГіГҐГІ!\n";
 			}
 			Add_edge(content1, content2);
 			Add_child_parent_top(content1, content2);
-			cout << "Ребро добавлено. <" << content1 << ", " << content2 << ">\n";
+			cout << "ГђГҐГЎГ°Г® Г¤Г®ГЎГ ГўГ«ГҐГ­Г®. <" << content1 << ", " << content2 << ">\n";
 			return true;
 		}
 		catch (const char* errorMessage) {
@@ -216,13 +203,13 @@ public:
 		}
 	}
 
-	//Находит степень вершины графа
+	//ГЌГ ГµГ®Г¤ГЁГІ Г±ГІГҐГЇГҐГ­Гј ГўГҐГ°ГёГЁГ­Г» ГЈГ°Г ГґГ 
 	bool Find_degree_top(Type content) {
-		// first + входящие ребра
-		// second - выходящие ребра
+		// first + ГўГµГ®Г¤ГїГ№ГЁГҐ Г°ГҐГЎГ°Г 
+		// second - ГўГ»ГµГ®Г¤ГїГ№ГЁГҐ Г°ГҐГЎГ°Г 
 		try {
 			if (!Search_top(content)) {
-				throw "Такой вершины нет!\n";
+				throw "Г’Г ГЄГ®Г© ГўГҐГ°ГёГЁГ­Г» Г­ГҐГІ!\n";
 			}
 			int first;
 			int second;
@@ -230,8 +217,8 @@ public:
 				if (content == (*it)->Get_content()) {
 					first = (Get_top(list_tops, content))->Get_parent_tops().size();
 					second = (Get_top(list_tops, content))->Get_child_tops().size();
-					cout << "Степень графа +: " << first << endl;
-					cout << "Степень графа -: " << second << endl;
+					cout << "Г‘ГІГҐГЇГҐГ­Гј ГЈГ°Г ГґГ  +: " << first << endl;
+					cout << "Г‘ГІГҐГЇГҐГ­Гј ГЈГ°Г ГґГ  -: " << second << endl;
 					return true;
 				}
 			}
@@ -242,7 +229,7 @@ public:
 		}
 	}
 
-	//Возвращет либо вторую, либо первую степень ребра
+	//Г‚Г®Г§ГўГ°Г Г№ГҐГІ Г«ГЁГЎГ® ГўГІГ®Г°ГіГѕ, Г«ГЁГЎГ® ГЇГҐГ°ГўГіГѕ Г±ГІГҐГЇГҐГ­Гј Г°ГҐГЎГ°Г 
 	int Change_one_two_degree(Type content1, Type content2) {
 		if (content1 == content2) {
 			return 1;
@@ -250,14 +237,14 @@ public:
 		return 2;
 	}
 
-	//Находит степень ребра графа
+	//ГЌГ ГµГ®Г¤ГЁГІ Г±ГІГҐГЇГҐГ­Гј Г°ГҐГЎГ°Г  ГЈГ°Г ГґГ 
 	bool Find_degree_edge(Type content1, Type content2) {
 		try {
 			if (!Search_edge(content1, content2)) {
-				throw "Такого ребра не существует!\n";
+				throw "Г’Г ГЄГ®ГЈГ® Г°ГҐГЎГ°Г  Г­ГҐ Г±ГіГ№ГҐГ±ГІГўГіГҐГІ!\n";
 			}
 			int degree;
-			cout << "Степень ребра графа: " << Change_one_two_degree(content1, content2) << endl;
+			cout << "Г‘ГІГҐГЇГҐГ­Гј Г°ГҐГЎГ°Г  ГЈГ°Г ГґГ : " << Change_one_two_degree(content1, content2) << endl;
 			return true;
 		}
 		catch (const char* errorMessage) {
@@ -269,9 +256,9 @@ public:
 	bool Incident_edge(Type content) {
 		try {
 			if (!Search_top(content)) {
-				throw "Такой вершины нет!\n";
+				throw "Г’Г ГЄГ®Г© ГўГҐГ°ГёГЁГ­Г» Г­ГҐГІ!\n";
 			}
-			cout << "Ребра, инцидентные вершине: ";
+			cout << "ГђГҐГЎГ°Г , ГЁГ­Г¶ГЁГ¤ГҐГ­ГІГ­Г»ГҐ ГўГҐГ°ГёГЁГ­ГҐ: ";
 			for (typename vector<pair<Type, Type>>::iterator it = list_edges.begin(); it != list_edges.end(); it++) {
 				if (content == it->first) {
 					cout << "<" << it->first << ", " << it->second << "> ";
@@ -289,9 +276,9 @@ public:
 	bool Smeg_top(Type content) {
 		try {
 			if (!Search_top(content)) {
-				throw "Такой вершины нет!\n";
+				throw "Г’Г ГЄГ®Г© ГўГҐГ°ГёГЁГ­Г» Г­ГҐГІ!\n";
 			}
-			cout << "Вершины, смежные с данной: ";
+			cout << "Г‚ГҐГ°ГёГЁГ­Г», Г±Г¬ГҐГ¦Г­Г»ГҐ Г± Г¤Г Г­Г­Г®Г©: ";
 			for (typename vector<Top<Type>*>::iterator it = Get_top(list_tops, content)->Get_child_tops().begin();
 				it != Get_top(list_tops, content)->Get_child_tops().end(); it++) {
 				cout << (*it)->Get_content() << " ";
